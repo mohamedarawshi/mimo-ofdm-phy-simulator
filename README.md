@@ -1,5 +1,7 @@
 # Pilot-Assisted 2×2 MIMO-OFDM PHY Simulator
 
+[![Python tests](https://github.com/mohamedarawshi/mimo-ofdm-phy-simulator/actions/workflows/tests.yml/badge.svg)](https://github.com/mohamedarawshi/mimo-ofdm-phy-simulator/actions/workflows/tests.yml)
+
 A reproducible Python physical-layer simulation of a **2×2 spatial-multiplexing MIMO-OFDM** link. This educational project compares **perfect channel state information (CSI)**, **least-squares (LS) channel estimation**, and **DFT-denoised LS channel estimation** with **linear MMSE equalization**.
 
 > **Scope:** 5G-style PHY concepts, **not** a 3GPP-compliant 5G NR modem. Uncoded, fixed, quasi-static frequency-selective channels; no mobility, coding, synchronization impairments, or standards-defined resource grids.
@@ -8,10 +10,10 @@ A reproducible Python physical-layer simulation of a **2×2 spatial-multiplexing
 
 The original integrated experiment uses 64 subcarriers, CP length 16, two orthogonal pilot OFDM symbols, 2000 QPSK data OFDM symbols, and a fixed four-tap **deliberately correlated** 2×2 MIMO channel. At 20 dB nominal data-bit Eb/N0:
 
-| Receiver | BER |
-|---|---:|
-| Perfect CSI + MMSE | 0.039777 |
-| LS estimate + MMSE | 0.070529 |
+| Receiver               |      BER |
+| ---------------------- | -------: |
+| Perfect CSI + MMSE     | 0.039777 |
+| LS estimate + MMSE     | 0.070529 |
 | DFT-denoised LS + MMSE | 0.041754 |
 
 The DFT estimate achieves roughly **41% lower BER than raw LS** at this point. Its channel estimation MSE is approximately **16× lower** in this setup, consistent with projecting 64 frequency-domain estimates onto 4 supported delay taps. These are **scenario-specific simulation results**, not universal performance claims.
